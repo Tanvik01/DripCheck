@@ -7,4 +7,13 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  server: {
+    // Proxy /api/* to local API server (run: node local-api-server.mjs)
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+      },
+    },
+  },
 })

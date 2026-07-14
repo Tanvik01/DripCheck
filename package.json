@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "api:local": "node local-api-server.mjs",
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview"
