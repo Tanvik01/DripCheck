@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,900;1,900&family=Hanken+Grotesk:wght@400;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  /* ── Colors ── */
+  --color-surface-container-low: #1c1b1b;
+  --color-on-error-container: #ffdad6;
+  --color-on-error: #690005;
+  --color-surface-container-highest: #353534;
+  --color-tertiary-fixed: #e9ddff;
+  --color-primary: #ffabf3;
+  --color-surface-tint: #ffabf3;
+  --color-background: #131313;
+  --color-inverse-surface: #e5e2e1;
+  --color-surface: #131313;
+  --color-on-primary: #5b005b;
+  --color-tertiary: #cfbcff;
+  --color-on-secondary-fixed-variant: #3c4d00;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-on-secondary-container: #556d00;
+  --color-error: #ffb4ab;
+  --color-on-tertiary-container: #340083;
+  --color-surface-container: #201f1f;
+  --color-surface-variant: #353534;
+  --color-tertiary-container: #9f7aff;
+  --color-inverse-on-surface: #313030;
+  --color-tertiary-fixed-dim: #cfbcff;
+  --color-on-primary-container: #510051;
+  --color-on-tertiary-fixed-variant: #5400cc;
+  --color-secondary: #ffffff;
+  --color-on-surface: #e5e2e1;
+  --color-on-secondary: #283500;
+  --color-primary-fixed-dim: #ffabf3;
+  --color-on-primary-fixed-variant: #810081;
+  --color-surface-bright: #393939;
+  --color-primary-fixed: #ffd7f5;
+  --color-primary-container: #ff00ff;
+  --color-secondary-container: #c3f400;
+  --color-surface-dim: #131313;
+  --color-on-primary-fixed: #380038;
+  --color-on-secondary-fixed: #161e00;
+  --color-outline-variant: #564052;
+  --color-on-background: #e5e2e1;
+  --color-inverse-primary: #a900a9;
+  --color-on-surface-variant: #dcbed4;
+  --color-outline: #a4899d;
+  --color-on-tertiary: #3a0092;
+  --color-secondary-fixed-dim: #abd600;
+  --color-error-container: #93000a;
+  --color-on-tertiary-fixed: #22005d;
+  --color-surface-container-high: #2a2a2a;
+  --color-secondary-fixed: #c3f400;
+
+  /* ── Border Radius ── */
+  --radius: 1rem;
+  --radius-lg: 2rem;
+  --radius-xl: 3rem;
+  --radius-full: 9999px;
+
+  /* ── Spacing ── */
+  --spacing-stack-lg: 48px;
+  --spacing-container-padding-mobile: 20px;
+  --spacing-gutter: 16px;
+  --spacing-base: 4px;
+  --spacing-container-padding-desktop: 64px;
+  --spacing-stack-sm: 8px;
+  --spacing-stack-md: 24px;
+
+  /* ── Font Families ── */
+  --font-headline-lg-mobile: Chivo, sans-serif;
+  --font-body-md: "Hanken Grotesk", sans-serif;
+  --font-headline-lg: Chivo, sans-serif;
+  --font-body-lg: "Hanken Grotesk", sans-serif;
+  --font-display-lg: Chivo, sans-serif;
+  --font-label-xl: "Hanken Grotesk", sans-serif;
+
+  /* ── Font Sizes ── */
+  --text-headline-lg-mobile: 32px;
+  --text-body-md: 16px;
+  --text-headline-lg: 48px;
+  --text-body-lg: 18px;
+  --text-display-lg: 72px;
+  --text-label-xl: 14px;
+}
+
+/* ── Base ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Desktop outer area — dark with subtle dot grid */
+body {
+  min-height: 100dvh;
+  overflow-x: hidden;
+  background-color: #080808;
+  background-image: radial-gradient(circle, #2a2a2a 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Mobile container wrapper */
+.mobile-shell {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  background-color: #131313;
+  position: relative;
+  box-shadow: 0 0 0 1px rgba(255, 171, 243, 0.08), 0 0 80px rgba(0,0,0,0.8);
+  overflow-x: hidden;
+}
+
+/* ── Material Symbols ── */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined', sans-serif;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-style: normal;
+  line-height: 1;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  user-select: none;
+}
+
+/* ── Hard Offset Shadows ── */
+.hard-shadow {
+  box-shadow: 6px 6px 0px 0px #c3f400;
+}
+
+.hard-shadow-sm {
+  box-shadow: 4px 4px 0px 0px #c3f400;
+}
+
+.hard-shadow-black {
+  box-shadow: 8px 8px 0px 0px #131313, 8px 8px 0px 2px #ffffff;
+}
+
+.hard-shadow-icon {
+  box-shadow: 6px 6px 0px 0px #c3f400;
+}
+
+/* ── Sticker Borders ── */
+.sticker-border {
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0px #000;
+}
+
+.sticker-border-sm {
+  border: 2px solid #000000;
+}
+
+/* ── Upload Zone Border ── */
+.vibe-border {
+  border: 3px solid #ffabf3;
+  position: relative;
+}
+
+/* ── Dynamic Background ── */
+.dynamic-bg {
+  background: linear-gradient(-45deg, #131313, #1c1b1b, #201f1f, #131313);
+  background-size: 400% 400%;
+  animation: bg-gradient-shift 10s ease infinite;
+}
+
+/* ── Text Glow ── */
+.text-glow {
+  text-shadow: 0 0 20px rgba(255, 171, 243, 0.4);
+}
+
+/* ── Font Brutal ── */
+.font-brutal {
+  font-family: 'Chivo', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+/* ── Active Button Press ── */
+.active-press:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px #c3f400 !important;
+}
+
+/* ── Animations ── */
+@keyframes bg-gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse-ring {
+  0%, 100% { transform: scale(0.8); opacity: 0.5; }
+  50%       { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(-2deg); }
+  50%       { transform: rotate(2deg); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pop-in {
+  0%   { opacity: 0; transform: scale(0.85); }
+  60%  { transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-wobble {
+  animation: wobble 2s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s ease forwards;
+}
+
+.animate-pop-in {
+  animation: pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* ── Selection ── */
+::selection {
+  background-color: #ff00ff;
+  color: #510051;
+}
