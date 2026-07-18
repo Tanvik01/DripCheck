@@ -1,16 +1,83 @@
-# React + Vite
+# DripCheck
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+An AI-powered outfit companion built with React and Google's Gemini multimodal model. Upload a photo or describe your outfit and get instant AI-generated style feedback and recommendations.
 
-Currently, two official plugins are available:
+**Live demo:** [drip-check-ten.vercel.app](https://drip-check-ten.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+- **Frontend:** React 19, Vite
+- **Styling:** Tailwind CSS v4
+- **AI:** Google Gemini API (`@google/genai`) for multimodal (image + text) generation
+- **Backend:** Vercel serverless function (with a local Node server for dev)
+- **Linting:** Oxlint
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project Structure
 
-## Expanding the Oxlint configuration
+```
+DripCheck/
+├── api/                   # Vercel serverless function(s)
+├── public/                # Static assets
+├── src/                   # React app source
+├── local-api-server.mjs   # Local stand-in for the Vercel API during dev
+├── vercel.json             # Vercel deployment config
+├── vite.config.js
+└── .env.example
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Prerequisites
+
+- Node.js 18+
+- A [Google Gemini API key](https://ai.google.dev/)
+
+## Setup
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Configure environment variables
+
+Copy `.env.example` to `.env.local` and add your key:
+
+```bash
+cp .env.example .env.local
+```
+
+```
+GEMINI_API_KEY=your_gemini_api_key_here
+```
+
+### 3. Run the app
+
+Start the frontend:
+
+```bash
+npm run dev
+```
+
+In a separate terminal, run the local API server (emulates the Vercel serverless function):
+
+```bash
+npm run api:local
+```
+
+## Scripts
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start the Vite dev server |
+| `npm run api:local` | Run the local API server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview the production build |
+| `npm run lint` | Run Oxlint |
+
+## Deployment
+
+Deployed on [Vercel](https://vercel.com), with `api/` deploying automatically as serverless functions. Set `GEMINI_API_KEY` in your Vercel project's environment variables.
+
+## License
+
+No license specified.
