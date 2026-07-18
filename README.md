@@ -1,22 +1,61 @@
-# DripCheck
+# 👗 DripCheck
 
-An AI-powered outfit companion built with React and Google's Gemini multimodal model. Upload a photo or describe your outfit and get instant AI-generated style feedback and recommendations.
+*The friend who tells you the truth about your outfit — minus the side-eye.*
 
-**Live demo:** [drip-check-ten.vercel.app](https://drip-check-ten.vercel.app)
+An AI-powered style companion. Show it your outfit, ask it what it thinks, and get instant feedback powered by Google's multimodal Gemini model — all wrapped in a fast, no-fuss React app.
 
-## Tech Stack
+![React 19](https://img.shields.io/badge/React-19-61DAFB)
+![Vite](https://img.shields.io/badge/Vite-8-646CFF)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38BDF8)
+![Gemini API](https://img.shields.io/badge/AI-Gemini-8E75B2)
 
-- **Frontend:** React 19, Vite
+**Live:** [drip-check-ten.vercel.app](https://drip-check-ten.vercel.app)
+
+---
+
+## Why this exists
+
+Mirrors lie by omission, group chats take twenty minutes to respond, and not everyone has a brutally honest best friend on standby. DripCheck is that check-in, on demand — upload a look, get a read, move on with your day.
+
+## ✨ What it does
+
+- **📸 Multimodal input** — send an image, a description, or both
+- **🤖 AI-generated feedback** — Gemini reads the outfit and responds with style commentary
+- **⚡ Fast, lightweight UI** — built on Vite + React 19, no heavyweight state management
+- **🎨 Styled with Tailwind v4** — clean, utility-first styling
+- **☁️ Serverless by design** — no database, no accounts, nothing to maintain
+
+## 🧠 How it works
+
+```
+   You upload a photo / type a description
+                  │
+                  ▼
+        React app (src/) sends the request
+                  │
+                  ▼
+     Vercel serverless function (api/)
+     — or local-api-server.mjs in dev —
+        calls the Gemini API
+                  │
+                  ▼
+     AI-generated style feedback streams
+              back to the UI
+```
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React 19 + Vite
 - **Styling:** Tailwind CSS v4
-- **AI:** Google Gemini API (`@google/genai`) for multimodal (image + text) generation
-- **Backend:** Vercel serverless function (with a local Node server for dev)
+- **AI:** Google Gemini API (`@google/genai`) — multimodal generation
+- **Backend:** Vercel serverless functions (`api/`), with `local-api-server.mjs` standing in during local dev
 - **Linting:** Oxlint
 
-## Project Structure
+## 📂 Project Structure
 
 ```
 DripCheck/
-├── api/                   # Vercel serverless function(s)
+├── api/                   # Vercel serverless function(s) — talks to Gemini
 ├── public/                # Static assets
 ├── src/                   # React app source
 ├── local-api-server.mjs   # Local stand-in for the Vercel API during dev
@@ -25,22 +64,19 @@ DripCheck/
 └── .env.example
 ```
 
-## Prerequisites
+## 🚀 Getting Started
 
-- Node.js 18+
-- A [Google Gemini API key](https://ai.google.dev/)
-
-## Setup
-
-### 1. Install dependencies
+### 1. Clone and install
 
 ```bash
+git clone https://github.com/Tanvik01/DripCheck.git
+cd DripCheck
 npm install
 ```
 
-### 2. Configure environment variables
+### 2. Get a Gemini API key
 
-Copy `.env.example` to `.env.local` and add your key:
+Grab one from [Google AI Studio](https://ai.google.dev/), then set it up locally:
 
 ```bash
 cp .env.example .env.local
@@ -50,21 +86,18 @@ cp .env.example .env.local
 GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
-### 3. Run the app
+### 3. Run it
 
-Start the frontend:
-
-```bash
-npm run dev
-```
-
-In a separate terminal, run the local API server (emulates the Vercel serverless function):
+Two terminals, two commands:
 
 ```bash
-npm run api:local
+npm run dev        # frontend — Vite dev server
+npm run api:local   # backend — local API server
 ```
 
-## Scripts
+Open the app, upload a fit, and see what the AI thinks. 🎉
+
+## 📜 Scripts
 
 | Command | Description |
 |---|---|
@@ -74,10 +107,16 @@ npm run api:local
 | `npm run preview` | Preview the production build |
 | `npm run lint` | Run Oxlint |
 
-## Deployment
+## ☁️ Deployment
 
-Deployed on [Vercel](https://vercel.com), with `api/` deploying automatically as serverless functions. Set `GEMINI_API_KEY` in your Vercel project's environment variables.
+Deployed on [Vercel](https://vercel.com) — `api/` ships automatically as serverless functions. Set `GEMINI_API_KEY` in your Vercel project's environment variables and you're live.
 
-## License
+## 🗺️ Ideas for later
+
+- Outfit history / saved looks
+- Style presets (casual, formal, event-specific)
+- Shareable feedback cards
+
+## 📄 License
 
 No license specified.
